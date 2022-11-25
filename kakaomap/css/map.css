@@ -15,6 +15,10 @@ body {
   height: 100%;
 }
 
+.invisible-aside {
+  left: -390px;
+}
+
 aside {
   position: fixed;
   /* z index를 줘야지 맵뒤로 안감 맵보다 앞으로 오게하는게 z-index이다. */
@@ -122,7 +126,12 @@ header {
 
 }
 
+.search-container {
+  position: relative;
+}
+
 .search {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -134,6 +143,7 @@ header {
 
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   background-color: white;
+
   /* search input에 높이가 100% 넘어간 부분을 가릴려고 */
   overflow: hidden;
 }
@@ -146,6 +156,68 @@ header {
   /* 여기는 왜 너비가 80%인가? 아이콘 때문에 */
   width: 80%;
   height: 100%;
+}
+
+/*눌렀을때 나오게 하는부분*/
+.search-input::-webkit-input-placeholder {
+  display: none;
+  font-weight: 500;
+}
+
+.invisible-recent {
+  display: none;
+}
+
+.search-recent {
+  position: absolute;
+  left: 0px;
+  /*search에서 준 높이 46px인데 44px을 준 이유는 라운드로 파랑이가 보여서 덮어주려고 44px을 부여*/
+  top: 44px;
+
+  border-top: 1px solid #f0f0f0f0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  width: 100%;
+
+  background-color: white;
+  /*라운드 처리된 부분 튀어나오지 않게 히든줌*/
+  overflow: hidden;
+}
+
+.title-recent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 18px 16px 8px;
+  height: 42px;
+
+  font-size: 12px;
+  color: #555555;
+}
+
+.list-recent {
+  margin: 0;
+  padding: 4px 0px;
+}
+
+.favorite-recent {
+  padding: 0px 16px;
+  height: 32px;
+
+  background-color: #f0f0f0;
+}
+
+.button-recentoff {
+  border: none;
+  /*이 높이는 favorite-recent 여기의 높이 100%의 뜻*/
+  height: 100%;
+
+  background-color: #ffffff00;
+  font-size: 11px;
+  color: #555555;
+
+  cursor: pointer;
 }
 
 /* 가상 클래스 webkit */
@@ -196,6 +268,10 @@ header {
   border-radius: 4px;
   background-color: #1467dd;
   font-weight: 700;
+}
+
+.invisible-body {
+  display: none;
 }
 
 .report-error {
